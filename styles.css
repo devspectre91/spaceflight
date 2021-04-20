@@ -284,3 +284,23 @@ a {
 	font-size: 2rem;
 	margin: 0;
 }
+
+/* media queries */
+@media only screen and (max-width: 600px) {
+	.news-item {
+		grid-template-columns: 1fr;
+	}
+	.news-container {
+		max-width: 98%;
+		padding: 1rem;
+	}
+	h2 {
+		margin-bottom: 2rem;
+	}
+	select {
+		width: 95%;
+	}
+	img {
+		width: 100%;
+	}
+}
