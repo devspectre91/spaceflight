@@ -4,10 +4,19 @@ let select = document.getElementById('news-source');
 
 xhr.then((data) => {
 	return data.json();
-}).then((newsData) => {
-	buildUI(newsData, 'all');
-	buildOptions(newsData);
-});
+})
+	.then((newsData) => {
+		buildUI(newsData, 'all');
+		document.getElementById('loader').style.display = 'none';
+		buildOptions(newsData);
+	})
+	.catch((error) => {
+		document.getElementById('loader').style.display = 'none';
+
+		root.innerHTML = `<h2>Internet connnection is not available: ${error} &#10060;</h2>`;
+		root.classList.add('error');
+		console.log(`Error ocurred! ${error}`);
+	});
 
 function buildUI(data, str) {
 	root.innerHTML = '';
